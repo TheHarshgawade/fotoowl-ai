@@ -1,33 +1,41 @@
-# FotoOwl AI
+# 🎬 FotoOwl AI – AI-Powered Wedding Video Generation Pipeline
 
-## About the Project
+## Project Overview
 
 This project was developed as part of the FotoOwl AI Internship Assignment.
 
-The goal of this project is to use AI to understand a user's video editing prompt, analyze wedding images, and generate a basic storyboard and video editing script automatically.
+The goal of the project is to automate the process of creating a wedding highlight video using AI. The pipeline understands the user's video requirements, analyzes wedding images, generates a storyboard, creates a video script, and renders a final video.
 
-I used the Google Gemini API for understanding the prompt and analyzing the images. The project follows a simple pipeline where each step generates an output file that is used in the next step.
+---
 
 ## Features
 
-- Converts a user prompt into video editing instructions
-- Analyzes wedding images using Gemini AI
+- Parses user video requirements using Gemini AI
+- Analyzes wedding images with AI
 - Generates image descriptions
-- Creates a simple storyboard
-- Generates a JSX video editing script
-- Simulates the final video rendering process
+- Creates a storyboard automatically
+- Generates a JSX video script
+- Compiles the generated script
+- Renders a final MP4 video using MoviePy
+- LangGraph-based workflow
+- Modular agent architecture
 
-## Technologies Used
+---
 
-- Python
-- Google Gemini API
+## Tech Stack
+
+- Python 3.13
+- Google Gemini API (`google.genai`)
+- LangGraph
+- MoviePy
 - Pillow
 - python-dotenv
-- JSON
 
-## Project Structure
+---
 
+## 📂 Project Structure
 
+```text
 fotoowl-ai/
 │
 ├── agents/
@@ -40,70 +48,107 @@ fotoowl-ai/
 │
 ├── sample_images/
 ├── output/
+├── tests/
+│   └── test_pipeline.py
+│
+├── graph.py
 ├── main.py
 ├── requirements.txt
+├── .env.example
 └── README.md
+```
 
+---
 
-## How to Run
+## 🔄 Workflow
 
-1. Clone this repository.
+```text
+User Prompt
+      │
+      ▼
+Intent Parser
+      │
+      ▼
+Image Analyzer
+      │
+      ▼
+Storyboard Writer
+      │
+      ▼
+Script Generator
+      │
+      ▼
+Compiler Fixer
+      │
+      ▼
+Video Renderer
+      │
+      ▼
+Final MP4 Video
+```
 
+---
 
+## Installation
+
+Clone the repository:
+
+```bash
 git clone https://github.com/TheHarshgawade/fotoowl-ai.git
+```
 
-2. Move into the project folder.
+Move into the project folder:
 
+```bash
 cd fotoowl-ai
+```
 
-3. Install the required packages.
+Install the required packages:
 
-
+```bash
 pip install -r requirements.txt
+```
 
+Create a `.env` file:
 
-4. Create a `.env` file and add your Gemini API key.
+```env
+GEMINI_API_KEY=your_api_key_here
+```
 
+Run the project:
 
-GEMINI_API_KEY=YOUR_API_KEY
-
-
-5. Run the project.
-
-
+```bash
 python main.py
+```
 
+---
 
+## 📁 Output Files
 
-
-## Output
-
-After running the project, the following files are generated in the `output` folder:
+The project generates:
 
 - `video_intent.json`
 - `image_descriptions.json`
 - `storyboard.json`
 - `video_script.jsx`
-- `render_output.json`
+- `final_video.mp4`
 
+---
 
-## Challenges I Faced
+##  Future Improvements
 
-While developing this project, I faced a few challenges such as API key configuration, migrating from the old Gemini SDK to the new `google-genai` package, and handling API quota limits. I resolved these issues by updating the code, testing each module separately, and improving the project structure.
+- RAG-based knowledge retrieval
+- Multi-model routing
+- Automatic caption generation
+- Background music selection
+- Advanced cinematic transitions
 
-## Future Improvements
-
-If I continue working on this project, I would like to:
-
-- Generate a real video instead of a simulated output
-- Add background music automatically
-- Generate captions using AI
-- Build a simple web interface for users
+---
 
 ## Author
 
 **Harshad Gawade**
 
-GitHub: https://github.com/TheHarshgawade
+B.Sc. Cyber & Digital Science Graduate
 
-This project was created for learning purposes as part of the FotoOwl AI Internship Assignment.
+GitHub: https://github.com/TheHarshgawade
